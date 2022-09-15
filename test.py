@@ -43,6 +43,7 @@ def fun1(uid):
         url_login = "http://ehallplatform.xust.edu.cn/default/jkdk/mobile/mobJkdkAdd_test.jsp?uid="+ uid
 
         driver.get(url_login)
+        driver.find_elements(By.CSS_SELECTOR,url_login)
 
         time.sleep(3)
 
