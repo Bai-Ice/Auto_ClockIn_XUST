@@ -1,7 +1,9 @@
 # coding=utf-8 
 from selenium import webdriver
 import time
+# from webdriver.chrome.options import Options
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.support.ui import WebDriverWait
 import configparser
@@ -33,11 +35,14 @@ chrome_options.add_argument('--no-sandbox')  # root用户不加这条会无法�
 
 # 1.打开浏览器
 def fun1(uid):
-    driver = webdriver.Chrome(options=chrome_options)  # 获取浏览器句柄
+
+    service = Service(executable_path='/home/yan/Python/chromeselenium/chromeselenium/chromedriver')
+    driver = webdriver.Chrome(options=chrome_options,service=service)  # 获取浏览器句柄
     try:
         wait = WebDriverWait(driver, 3)  # 后面可以使用wait对特定元素进行等待
         # 3.访问打卡页面并模拟点击来打卡
         url_login = "http://ehallplatform.xust.edu.cn/default/jkdk/mobile/mobJkdkAdd_test.jsp?uid="+ uid
+
         driver.get(url_login)
 
         time.sleep(3)
@@ -142,3 +147,4 @@ if "MSG_TO" in os.environ:
     MSG_TO = os.environ["MSG_TO"]
 
 daka(UID, SERVERPUSHKEY, MSG_TO)
+
