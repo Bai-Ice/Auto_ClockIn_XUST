@@ -36,8 +36,7 @@ chrome_options.add_argument('--no-sandbox')  # root用户不加这条会无法�
 # 1.打开浏览器
 def fun1(uid):
 
-    service = Service(executable_path='/home/yan/Python/chromeselenium/chromeselenium/chromedriver')
-    driver = webdriver.Chrome(options=chrome_options,service=service)  # 获取浏览器句柄
+    driver = webdriver.Chrome(options=chrome_options)  # 获取浏览器句柄
     try:
         wait = WebDriverWait(driver, 3)  # 后面可以使用wait对特定元素进行等待
         # 3.访问打卡页面并模拟点击来打卡
