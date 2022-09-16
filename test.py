@@ -63,12 +63,12 @@ def fun1(uid):
         time.sleep(1)
         input = WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'input.srk.jiaodian')))
 
-        target = driver.find_elements_by_css_selector(by=By.CSS_SELECTOR,value='input.srk.jiaodian')[1]
+        target = driver.find_element(by=By.CSS_SELECTOR,value='input.srk.jiaodian')[1]
         driver.execute_script("arguments[0].scrollIntoView();", target)
 
 
         time.sleep(2)
-        driver.find_elements_by_css_selector(by=By.CSS_SELECTOR,value='input.srk.jiaodian')[1].click()
+        driver.find_element(by=By.CSS_SELECTOR,value='input.srk.jiaodian')[1].click()
 
         driver.switch_to.active_element.send_keys(u'西安科技大学')
 
