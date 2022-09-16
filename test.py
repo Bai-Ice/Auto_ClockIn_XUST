@@ -86,7 +86,7 @@ def fun1(uid):
             #     if not radio.is_selected():
             #         radio.click()
         # 获取提交按钮并点击	jiaodian = driver.find_elements_by_xpath('//*[@id="xxd"]/ul/li/input')[0]
-        driver.find_elements(by=By.CSS_SELECTOR,value='span#submit').click()
+        driver.find_elements(by=By.CSS_SELECTOR,value='span#submit')[0].click()
 
         dig_confirm = driver.switch_to.alert
         # 打印对话框的内容
