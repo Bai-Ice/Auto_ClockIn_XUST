@@ -42,9 +42,9 @@ def fun1(uid):
         # 3.访问打卡页面并模拟点击来打卡
         url_login = "http://ehallplatform.xust.edu.cn/default/jkdk/mobile/mobJkdkAdd_test.jsp?uid="+ uid
 
-#         driver.get(url_login)
-          driver.find_element(by=By.CSS_SELECTOR,value=url_login)
-#         driver.find_elements(By.CSS_SELECTOR,url_login)
+        driver.get(url_login)
+#       driver.find_element(by=By.CSS_SELECTOR,value=url_login)
+#       driver.find_elements(By.CSS_SELECTOR,url_login)
 
         time.sleep(3)
 
