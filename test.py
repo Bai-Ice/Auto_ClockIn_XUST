@@ -42,9 +42,9 @@ def fun1(uid):
         # 3.访问打卡页面并模拟点击来打卡
         url_login = "http://ehallplatform.xust.edu.cn/default/jkdk/mobile/mobJkdkAdd_test.jsp?uid="+ uid
 
-        driver.get(url_login)
-#       driver.find_element(by=By.CSS_SELECTOR,value=url_login)
-#       driver.find_elements(By.CSS_SELECTOR,url_login)
+        driver.get(url=url_login)
+        # driver.find_elements(By.CSS_SELECTOR,url_login)
+        # driver.find_element(By.CSS_SELECTOR)
 
         time.sleep(3)
 
@@ -63,12 +63,12 @@ def fun1(uid):
         time.sleep(1)
         input = WebDriverWait(driver, 30).until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'input.srk.jiaodian')))
 
-        target = driver.find_elements_by_css_selector('input.srk.jiaodian')[1]
+        target = driver.find_elements_by_css_selector(by=By.CSS_SELECTOR,value='input.srk.jiaodian')[1]
         driver.execute_script("arguments[0].scrollIntoView();", target)
 
 
         time.sleep(2)
-        driver.find_elements_by_css_selector('input.srk.jiaodian')[1].click()
+        driver.find_elements_by_css_selector(by=By.CSS_SELECTOR,value='input.srk.jiaodian')[1].click()
 
         driver.switch_to.active_element.send_keys(u'西安科技大学')
 
@@ -148,4 +148,3 @@ if "MSG_TO" in os.environ:
     MSG_TO = os.environ["MSG_TO"]
 
 daka(UID, SERVERPUSHKEY, MSG_TO)
-
