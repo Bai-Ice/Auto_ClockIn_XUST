@@ -75,7 +75,7 @@ def fun1(uid):
         # 今日体温
         jQuery = r'$("input[name=\'jrtwfw5\']")[0].click()'
         driver.execute_script(jQuery)
-        radios = driver.find_elements_by_css_selector('input[type=radio]')
+        radios = driver.find_elements(by=By.CSS_SELECTOR,value='input[type=radio]')
         for radio in radios:
             if radio.get_attribute(u"name") == u"jrsfzx3" and radio.get_attribute(u"value") == u"是":
                 if not radio.is_selected():
@@ -86,7 +86,7 @@ def fun1(uid):
             #     if not radio.is_selected():
             #         radio.click()
         # 获取提交按钮并点击	jiaodian = driver.find_elements_by_xpath('//*[@id="xxd"]/ul/li/input')[0]
-        driver.find_element_by_css_selector('span#submit').click()
+        driver.find_elements(by=By.CSS_SELECTOR,value='span#submit').click()
 
         dig_confirm = driver.switch_to.alert
         # 打印对话框的内容
@@ -95,7 +95,7 @@ def fun1(uid):
         dig_confirm.accept()
 
         try:
-            driver.find_elements_by_xpath("//*[text()='已完成']")
+            driver.find_elements(by=By.XPATH,value="//*[text()='已完成']")
             driver.quit()
             print("\t打卡成功")
             return True, "none"
